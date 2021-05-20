@@ -13,6 +13,7 @@ Your README might also describe some of the challenges you faced, as well as the
 
 ## Process
 1. Identify what I need on the page and add to HTML: container for the quiz, start button, view high scores link, timer.
+2. I want the timer to start when I click on the "Start the Quiz" button.
 
 ## Usage
 
