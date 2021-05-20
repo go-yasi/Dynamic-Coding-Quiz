@@ -16,6 +16,7 @@ Your README might also describe some of the challenges you faced, as well as the
 2. Next, I wanted to create a timer that would start when a users clicks on the "Start the Quiz" button. I first created an event listener for the start button, then began creating the timer function. 
 3. To create the timer function, I first defined a varible (timeLeft) that would start at the number of seconds I wanted the countdown to be. Then, I set a conditional statement to subtract one from the timeLeft variable every second, as long as timeLeft was greater than one. Then I added an else that would clear the timer text content and clear the timeInterval function.
 4. My next step was to call the startTimer function inside my start button event listener. After completing this step, my timer successfully began to run once the start button was clicked! This was a very exciting moment for me. 
+5. I also needed to create a function that would actually start the quiz once a user pressed the start button.
 
 ## Usage
 

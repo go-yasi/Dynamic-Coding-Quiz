@@ -1,0 +1,22 @@
+#timer {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#start-quiz {
+    text-align: center;
+    width: 50vw;
+    margin: 0 auto;
+    padding: 2vw;
+    border: 1px solid red;
+}
+
+h1 {
+    margin: 0;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+}
