@@ -12,7 +12,7 @@ What makes your project stand out?
 Your README might also describe some of the challenges you faced, as well as the features you plan to implement in the future. And if your project is deployed, make sure to include a link to the deployed application so people can see it in action!
 
 ## Process
-
+1. Identify what I need on the page and add to HTML: container for the quiz, start button, view high scores link, timer.
 
 ## Usage
 
