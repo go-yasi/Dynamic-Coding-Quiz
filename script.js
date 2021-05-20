@@ -7,18 +7,17 @@ var timer = document.querySelector("#timer");
 
 // Create a function for the timer
 function startTimer() {
-    var timeLeft = 5;
+    var timeLeft = 30;
 
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
             timeLeft--;
-            timer.textContent = "Time: " + timeLeft;
+            timer.textContent = "Time: " + timeLeft + " seconds";
         }
         
         else {
             timer.textContent = "";
             clearInterval(timeInterval);
-            window.alert("Time is up!");
         }
 
     }, 1000)
@@ -31,7 +30,6 @@ function startTimer() {
 
 // Start timer on click of startButton
 startButton.addEventListener("click", function(){
-
+    startTimer();
 });
 
-startTimer();
