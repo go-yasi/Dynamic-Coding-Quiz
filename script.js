@@ -10,6 +10,11 @@ function startTimer() {
     var = timeLeft = 30;
 
     var timeInterval = setInterval(function () {
+        timeLeft--;
+
+        if(timeLeft === 0) {
+            clearInterval(timeInterval);
+        }
 
     }, 1000)
 };
@@ -23,3 +28,5 @@ function startTimer() {
 startButton.addEventListener("click", function(){
 
 });
+
+startTimer();
