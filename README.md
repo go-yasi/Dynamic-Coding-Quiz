@@ -12,8 +12,10 @@ What makes your project stand out?
 Your README might also describe some of the challenges you faced, as well as the features you plan to implement in the future. And if your project is deployed, make sure to include a link to the deployed application so people can see it in action!
 
 ## Process
-1. Identify what I need on the page and add to HTML: container for the quiz, start button, view high scores link, timer.
-2. I want the timer to start when I click on the "Start the Quiz" button.
+1. First, I identified what I needed on the page and added to HTML. I added container for the quiz, a start button, a link to view high scores link, and a space for the timer.
+2. Next, I wanted to create a timer that would start when a users clicks on the "Start the Quiz" button. I first created an event listener for the start button, then began creating the timer function. 
+3. To create the timer function, I first defined a varible (timeLeft) that would start at the number of seconds I wanted the countdown to be. Then, I set a conditional statement to subtract one from the timeLeft variable every second, as long as timeLeft was greater than one. Then I added an else that would clear the timer text content and clear the timeInterval function.
+4. My next step was to call the startTimer function inside my start button event listener. After completing this step, my timer successfully began to run once the start button was clicked! This was a very exciting moment for me. 
 
 ## Usage
 
