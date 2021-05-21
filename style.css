@@ -1,10 +1,12 @@
 /* Color Scheme */
-::root {
+:root {
     --dark: #282A36;
     --light: #fff;
     --pink:#E46EB6;
     --purple: #A985E2;
     --blue: #6171A4;
+    --lightblue: #88DFF3;
+    --green: #54FA72;
 }
 
 
@@ -14,7 +16,7 @@
 }
 
 body {
-    
+    background-color: var(--dark);
 }
 
 
@@ -24,23 +26,14 @@ h1, h2, h3, h4, h5, h6, p, a, li, button, div {
 
 p {
     line-height: 1.5;
+    color: var(--pink);
 }
 
-button {
-    display: block;
-    border: 0;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: green;
-    color: white;
-}
 
 /* Top Bar */
 #top-bar {
-    border-bottom: 1px solid black;
     padding: 1em 2em;
+    color: var(--lightblue);
 }
 
 /* Timer */
@@ -64,29 +57,53 @@ button:hover {
 h1 {
     margin: 25px 0;
     font-size: 3vw;
+    color: var(--blue);
 }
 
 /* Start button */
 #start-button {
+    display: block;
+    border: 0;
+    cursor: pointer;
     margin: 0 auto;
     margin-top: 10px;
     padding: 1em 2em;
     transition: .5s ease;
 }
 
+#start-button:hover {
+    background-color:var(--green);
+}
+
 /* Quiz Styling */
 #quiz-section {
-    border:1px solid red;
     width: 50vw;
     margin: 0 auto;
     padding: 2em;
 }
 
-/* Answer Buttons */
+/* Questions */
+#questions {
+    color: var(--blue);
+    font-size: 24px;
+}
+
+/* Answer Options */
 .btn {
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 15px;
     padding-top: 1em;
     padding-bottom: 1em;
-    padding-right: 2em;              
+    padding-left: .5em;
+    background-color: transparent;
+    border: 1px solid var(--purple);  
+    display: block;    
+    color: var(--pink);
+    box-shadow: 0 0 5px var(--purple);
+}
+
+.btn:hover{
+    background-color: var(--purple);
+    cursor: pointer;
+    color: var(--light);
 }
