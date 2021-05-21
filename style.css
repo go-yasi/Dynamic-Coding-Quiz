@@ -1,10 +1,25 @@
 /* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
 h1, h2, h3, h4, h5, h6, p, a, li, button, div {
     font-family: 'Poppins', sans-serif;
 }
 
 p {
     line-height: 1.5;
+}
+
+button {
+    display: block;
+    border: 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: green;
+    color: white;
 }
 
 /* Top Bar */
@@ -30,23 +45,33 @@ p {
     /* border: 1px solid red; */
 }
 
-/* Code Quiz Challenge heading */
+/* Title */
 h1 {
     margin: 25px 0;
     font-size: 3vw;
 }
 
 /* Start button */
-button {
-    display: block;
-    margin: 0px auto;
-    padding: 1em 2em;
-    border: 0;
+#start-button {
+    margin: 0 auto;
     margin-top: 10px;
-    cursor: pointer;
+    padding: 1em 2em;
     transition: .5s ease;
 }
 
-button:hover {
-    background-color: purple;
+/* Quiz Styling */
+#quiz-section {
+    border:1px solid red;
+    width: 50vw;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+/* Answer Buttons */
+.btn {
+    margin-left: 0;
+    margin-top: 10px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 2em;              
 }
