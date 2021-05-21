@@ -5,24 +5,37 @@ var quizDiv = document.querySelector("#quiz");
 
 // Object with questions and answer options
 var questions = [{
-    questions: "Here is the question?",
-    answers: ["A1", "A2", "A3", "A4"],
-    correct: "A3"
+    questions: "Which of the following is not an arithmetic operator?",
+    answers: ["*", "+", "=", "%"],
+    correct: "="
 },
 {
-    questions: "Now another is the question?",
-    answers: ["A1", "A2", "A3", "A4"],
-    correct: "A3"
+    questions: "What do we call a list of ordered, stored data?",
+    answers: ["method", "object", "variable", "array"],
+    correct: "array"
 },
 {
-    questions: ["Here is the question?"],
-    answers: ["A1", "A2", "A3", "A4"],
-    correct: "A3"
+    questions: "What does the Math.floor function do?",
+    answers: [
+        "returns a floating-point, random number in the range from 0 (inclusive) up to but not including 1", 
+        "returns the largest integer less than or equal to the given number", 
+        "ends function execution and returns the specified value to the location where it was called", 
+        "checks two values and returns a boolean"],
+    correct: "returns the largest integer less than or equal to the given number"
 },
 {
-    questions: ["Here is the question?"],
-    answers: ["A1", "A2", "A3", "A4"],
-    correct: "A3"
+    questions: "An array is enclosed within _____________.",
+    answers: ["square brackets", "single quotes", "parentheses", "angled brackets"],
+    correct: "square brackets"
+},
+{
+    questions: "The .length property of a string returns _____________.",
+    answers: [
+        "a randomly generated number between 0 and 1", 
+        "the number of characters that make up the string", 
+        "the index value of the item", 
+        "the sum of all numbers in an array"],
+    correct: ""
 }];
 
 

@@ -1,7 +1,22 @@
+/* Color Scheme */
+::root {
+    --dark: #282A36;
+    --light: #fff;
+    --pink:#E46EB6;
+    --purple: #A985E2;
+    --blue: #6171A4;
+}
+
+
 /* Global Styles */
 * {
     box-sizing: border-box;
 }
+
+body {
+    
+}
+
 
 h1, h2, h3, h4, h5, h6, p, a, li, button, div {
     font-family: 'Poppins', sans-serif;
