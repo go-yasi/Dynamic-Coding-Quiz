@@ -1,27 +1,52 @@
+/* Global Styles */
 h1, h2, h3, h4, h5, h6, p, a, li, button, div {
     font-family: 'Poppins', sans-serif;
 }
 
+p {
+    line-height: 1.5;
+}
+
+/* Top Bar */
+#top-bar {
+    border-bottom: 1px solid black;
+    padding: 1em 2em;
+}
+
+/* Timer */
 #timer {
     position: absolute;
     top: 0;
     right: 0;
+    padding: 1em 2em;
 }
 
+/* Starting container */
 #start-quiz {
     text-align: center;
-    width: 50vw;
+    width: 60vw;
     margin: 0 auto;
     padding: 2vw;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
+/* Code Quiz Challenge heading */
 h1 {
-    margin: 15px 0;
+    margin: 25px 0;
     font-size: 3vw;
 }
 
+/* Start button */
 button {
     display: block;
-    margin: 0 auto;
+    margin: 0px auto;
+    padding: 1em 2em;
+    border: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+button:hover {
+    background-color: purple;
 }
