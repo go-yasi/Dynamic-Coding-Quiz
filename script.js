@@ -12,6 +12,9 @@ var answerOption4 = document.createElement("div");
 
 var startDiv = document.querySelector("#start-quiz");
 
+var finalScore = 0;
+var currentScore = 0;
+
 
 // Object with questions and answer options
 var questions = [{
@@ -93,7 +96,7 @@ function askfirstQuestion(){
     answerOption3.textContent = questions[0].answers[2];
     answerOption4.textContent = questions[0].answers[3];
 
-    // Assign classes to dynamically created elements
+    // Assign new classes to dynamically created elements
     questionDiv.setAttribute("class", "questions");
     answersDiv.setAttribute("class", "answers");
     answerOption1.setAttribute("class", "op1 btn");
@@ -103,6 +106,13 @@ function askfirstQuestion(){
 };
 
 // Need function to log user's answer selection and determine if it's right/wrong and calculate score
+function recordAnswer() {
+    var userChoice = "?";
+
+    if (userChoice === questions.correct) {
+        
+    }
+}
 
 // Need eventListener that when any answerOption is clicked (so anything inside answersDiv), move to next question
 
