@@ -1,7 +1,17 @@
 var startButton = document.querySelector("#start-button");
 var timer = document.querySelector("#timer");
 
-var quizDiv = document.querySelector("#quiz");
+var quizDiv = document.querySelector("#quiz-section");
+
+var questionDiv = document.createElement("div");
+var answersDiv = document.createElement("div");
+var answerOption1 = document.createElement("div");
+var answerOption2 = document.createElement("div");
+var answerOption3 = document.createElement("div");
+var answerOption4 = document.createElement("div");
+
+var startDiv = document.querySelector("#start-quiz");
+
 
 // Object with questions and answer options
 var questions = [{
@@ -37,18 +47,6 @@ var questions = [{
         "the sum of all numbers in an array"],
     correct: ""
 }];
-
-
-// var questions = [{
-//     questions: "Question?",
-//     answers: ["1", "2", "3," "4"],
-//     correct: "xxx"
-// },
-// {
-//     questions: "Question?",
-//     answers: ["Boolean", "x"],
-//     correct: "xxx"
-// }];
 console.log(questions);
 
 // Function to start timer
@@ -65,31 +63,48 @@ function startTimer() {
             clearInterval(timeInterval);
         }
     }, 1000)
-};
-
-// defining questionCounter start value
-var questionCounter = 0;
-console.log(questionCounter);
-
-// Function for first question 
-function firstQuestion(){
-    var question1 = questions[questionCounter];
-    console.log(question1);
-
-    var question = question1.question;
-
-    var question2 = document.createElement("h2");
-    question2.textContent = question;
-    quizDiv.appendChild();
-
-    var answers = question1.answers;
-    var correct = question1.correct;
-
-    questionCounter++;
+    askfirstQuestion();
 };
 
 // Start timer on click of startButton
 startButton.addEventListener("click", function(){
     startTimer();
 });
+
+// Function for first question 
+function askfirstQuestion(){
+    // hide starting block
+    startDiv.style.display = "none";
+    
+    // append questions, answers, and answer option divs
+    quizDiv.appendChild(questionDiv);
+    quizDiv.appendChild(answersDiv);
+    answersDiv.appendChild(answerOption1);
+    answersDiv.appendChild(answerOption2);
+    answersDiv.appendChild(answerOption3);
+    answersDiv.appendChild(answerOption4);
+
+    // Adding quesiton to page
+    questionDiv.textContent = questions[0].questions;
+
+    // Adding anser options to page
+    answerOption1.textContent = questions[0].answers[0];
+    answerOption2.textContent = questions[0].answers[1];
+    answerOption3.textContent = questions[0].answers[2];
+    answerOption4.textContent = questions[0].answers[3];
+
+    // Assign classes to dynamically created elements
+    questionDiv.setAttribute("class", "questions");
+    answersDiv.setAttribute("class", "answers");
+    answerOption1.setAttribute("class", "op1 btn");
+    answerOption2.setAttribute("class", "op2 btn");
+    answerOption3.setAttribute("class", "op3 btn");
+    answerOption4.setAttribute("class", "op4 btn");
+};
+
+// Need function to log user's answer selection and determine if it's right/wrong and calculate score
+
+// Need eventListener that when any answerOption is clicked (so anything inside answersDiv), move to next question
+
+// Need move to next question function
 
