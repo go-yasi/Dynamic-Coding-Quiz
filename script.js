@@ -1,6 +1,8 @@
 var startButton = document.querySelector("#start-button");
 var timer = document.querySelector("#timer");
 
+
+
 // sections
 var startDiv = document.querySelector("#start-quiz");
 var quizDiv = document.querySelector("#quiz-section");
@@ -25,8 +27,10 @@ answerOption4.setAttribute("class", "op4 btn");
 var finalScore = 0;
 var currentScore = 0;
 
+// starting index value for 
+var questionIndex = 0;
 
-// Object with questions and answer options
+// Object with questions and answer [options]
 var questions = [{
     questions: "Which of the following is not an arithmetic operator?",
     answers: ["*", "+", "=", "%"],
@@ -53,40 +57,42 @@ var questions = [{
     correct: ""
 }];
 
+
+// Function to reset score on page load
+function init(){
+    currentScore = 0;
+    finalScore = 0;
+}
+
 // Function to start timer
 function startTimer() {
     // starting count
-    var timeLeft = 30;
-
+    var timeLeft = 60;
+    // if there is more than one second left, keep subtracting one second ever second
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
             timeLeft--;
             timer.textContent = "Time: " + timeLeft + " seconds";
         } 
-        // else if () {
-        //     clearInterval(timeInterval);
-        // }
+        // otherwise, end the timer and replace text
         else {
             timer.textContent = "Game Over!";
             clearInterval(timeInterval);
         }
     }, 1000)
-    askfirstQuestion();
+    // function to ask question 1
+    askQ1();
 };
 
-// Start timer on click of startButton
+// Start timer and move to question 1 on click of startButton
 startButton.addEventListener("click", function(){
     startTimer();
 });
 
-// Function for first question 
-function askfirstQuestion(){
+// Function to append dynamically created elements and ask first question 
+function askQ1(){
     // hide starting block
     startDiv.style.display = "none";
-
-    // reset score
-    currentScore = 0;
-    finalScore = 0;
     
     // append questions, answers, and answer option divs
     quizDiv.appendChild(questionDiv);
@@ -97,32 +103,65 @@ function askfirstQuestion(){
     answersDiv.appendChild(answerOption4);
 
     // Add quesiton to page
-    questionDiv.textContent = questions[0].questions;
+    questionDiv.textContent = questions[questionIndex].questions;
 
     // Add answer options to page
-    answerOption1.textContent = questions[0].answers[0];
-    answerOption2.textContent = questions[0].answers[1];
-    answerOption3.textContent = questions[0].answers[2];
-    answerOption4.textContent = questions[0].answers[3];
+    answerOption1.textContent = questions[questionIndex].answers[0];
+    answerOption2.textContent = questions[questionIndex].answers[1];
+    answerOption3.textContent = questions[questionIndex].answers[2];
+    answerOption4.textContent = questions[questionIndex].answers[3];
+    
+    // cycle through the same process with all the following question+answers in the object
+    questionIndex++;
 };
 
-// Need function to log user's answer selection and determine if it's right/wrong and calculate score
-function recordWins(event) {
-    var userChoice = event.target.textContent;
-    console.log("I'm working!");
-    // if user selects the correct answer, add 10pts to current score, and add to local storage
-    if (userChoice === questions.correct) {
-        currentScore = currentScore + 10;
-        localStorage.setItem("Current Score", currentScore);
+// Ask next question
+function askNextQ() {
+    // conditional to stop game after all questions are asked
+    if (questionIndex === 5) {
+        questionDiv.textContent = "Game Over!";
+        // hide the answers
+        answersDiv.textContent = "";
+        // save the final score
+        return;
     }
-    // otherwise, subtract 10 from current score and add to local storage
+
+    // Add new question to page
+    questionDiv.textContent = questions[questionIndex].questions;
+
+    // Add new answer options to page
+    answerOption1.textContent = questions[questionIndex].answers[0];
+    answerOption2.textContent = questions[questionIndex].answers[1];
+    answerOption3.textContent = questions[questionIndex].answers[2];
+    answerOption4.textContent = questions[questionIndex].answers[3];
+    
+};
+
+
+// Function to log user's answer selection, determine if it's right/wrong, and calculate score
+function recordWins(event) {
+    // variable to record user's answer selection
+    var userChoice = event.target.textContent;
+    // console log user's selection
+    console.log("User selected: " + event.target.textContent);
+    // console log correct answer
+    console.log("Correct answer: " + questions[questionIndex].correct);
+
+    // if user selects the correct answer, add 10pts to current score and console log 
+    if (userChoice === questions[questionIndex].correct) {
+        console.log(userChoice);
+        currentScore = currentScore + 10;
+        console.log("Current Score: " + currentScore);
+    }
+    // otherwise, subtract 10 from current score and console log
     else {
         currentScore = currentScore - 10;
-        localStorage.setItem("Current Score", currentScore);
+        console.log("Current Score: ", currentScore);
     }
+    questionIndex++;
 };
 
-// Need function to calculate final score 
+// Function to calculate final score 
 function finalScoreCount() {
     // add seconds left in timer to current score to get the final score, then store in local storage
     if (timeLeft > 0) {
@@ -130,34 +169,13 @@ function finalScoreCount() {
     }
     else {
         finalScore = currentScore;
+        // 
     }
     localStorage.setItem("Final Score", finalScore);
 };
 
-// Need "move to next question" function
-function nextQuestion() {
-    questionDiv.textContent = questions[1].questions;
-
-    // Add answer options to page
-    answerOption1.textContent = questions[1].answers[0];
-    answerOption2.textContent = questions[1].answers[1];
-    answerOption3.textContent = questions[1].answers[2];
-    answerOption4.textContent = questions[1].answers[3];
-};
-
-
-// stop the countdown when the last question is answered
-function stopCountdown() {
-    // after answering last question
-    // stop timer
-    clearInterval(timeInterval);
-    
-    
-}
 
 // Need eventListener that when any answerOption is clicked (so anything inside answersDiv), move to next question
 
-answersDiv.addEventListener("click", nextQuestion);
+answersDiv.addEventListener("click", askNextQ);
 answersDiv.addEventListener("click", recordWins);
-
-
