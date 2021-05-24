@@ -1,8 +1,6 @@
 var startButton = document.querySelector("#start-button");
 var timer = document.querySelector("#timer");
 
-
-
 // sections
 var startDiv = document.querySelector("#start-quiz");
 var quizDiv = document.querySelector("#quiz-section");
@@ -117,12 +115,13 @@ function askQ1(){
 
 // Ask next question
 function askNextQ() {
-    // conditional to stop game after all questions are asked
+    // conditional to stop game after all questions are answered
     if (questionIndex === 5) {
         questionDiv.textContent = "Game Over!";
         // hide the answers
         answersDiv.textContent = "";
-        // save the final score
+        // need something to save the final score
+        // need something to stop the timer if all questions are answered
         return;
     }
 
