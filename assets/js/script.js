@@ -66,7 +66,7 @@ function init(){
 function startTimer() {
     // starting count
     var timeLeft = 60;
-    // if there is more than one second left, keep subtracting one second ever second
+    // if there is more than one second left, keep subtracting one second every second
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
             timeLeft--;
