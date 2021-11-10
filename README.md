@@ -32,7 +32,7 @@ Your README might also describe some of the challenges you faced, as well as the
 
 
 ## Usage
-Link to deployed application: https://go-yasi.github.io/code-quiz/
+Link to deployed application: https://go-yasi.github.io/Dynamic-Coding-Quiz/
 
 Below is a screenshot of the live application: 
 ![Start page of an interactive coding quiz](./assets/images/screenshot.png)
